@@ -1,0 +1,54 @@
+CS-182 
+Sam Melero
+09/29/17
+cuyamacca payroll psuedocode
+
+Inputs: firstName, lastName, payType, payAmount
+outputs: grossPay, taxes, retirement, netWage
+
+START
+    get users payType (hourly, salary, part time, temporary)
+    employeeMax = 1
+while (payType != quit OR employee max <= 4)
+    Get users first name
+    get users last name 
+    get users payAmount(salary or per hour rate)
+    IF (hourly)
+        get users number of hours
+        IF (hours < 40)
+        grossPay = hours * payRate
+        END-IF
+        IF (hours > 40 )
+            grossPay = 40 * payRate
+            hours = hours - 40
+            grossPay = grossPay + (hours * (1.5 * payRate))
+        END-IF
+        tax = grossPay * .18 
+        netPay = grossPay - tax
+        output everything
+    END-IF
+    IF (salary)
+        grossPay = salary / 52
+        tax = grossPay * .18
+        retirement = grossPay * .04
+        netPay = grossPay - tax - retirement
+        output all variables
+    END-IF
+    IF (temporary)
+        get users number of hours
+        IF (hours < 40)
+        grossPay = hours * (1.5 * payRate)
+        END-IF
+        IF (hours > 40 )
+            grossPay = 40 * payRate
+            hours = hours - 40
+            grossPay = grossPay + (hours * payRate)
+        END-IF 
+        netPay = grossPay
+        output everything
+    END-IF
+    employeeMax = employeeMax + 1
+    get users payType (hourly, salary, part time, temporary)
+END-WHILE
+system exit
+STOP
